@@ -1,0 +1,50 @@
+# ~/.claude — commit portable config (settings, skills, agents, plans).
+# Ignore everything sensitive, machine-specific, or re-generated below.
+# NOTE: gitignore has no inline comments — keep comments on their own lines.
+
+# --- Secrets & auth state ---
+# .credentials.json holds API/OAuth tokens (macOS uses Keychain, but ignore defensively)
+.credentials.json
+*.env
+*.pem
+*.key
+# MCP server auth/session ids
+mcp-needs-auth-cache.json
+remote-settings.json
+# machine-specific permission overrides
+settings.local.json
+
+# --- Session data & transcripts (contain full tool I/O, can include secrets) ---
+projects/
+sessions/
+session-env/
+history.jsonl
+shell-snapshots/
+file-history/
+paste-cache/
+backups/
+
+# --- Machine-specific / ephemeral state ---
+# editor PID lock files
+ide/
+tasks/
+telemetry/
+debug/
+cache/
+stats-cache.json
+policy-limits.json
+.last-cleanup
+.last-update-result.json
+
+# --- Re-fetchable plugin content (manifests below are kept) ---
+plugins/repos/
+plugins/marketplaces/
+plugins/cache/
+plugins/data/
+plugins/plugin-catalog-cache.json
+plugins/.last_inuse_sweep
+
+# --- General ---
+*.lock
+*.log
+.DS_Store
