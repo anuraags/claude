@@ -8,5 +8,11 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754197624213
+  },
+  "permissions": {
+    "allow": [
+      "Bash(acli)",
+      "Bash(acli *)"
+    ]
   }
 }
