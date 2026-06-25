@@ -5,8 +5,23 @@
       "Bash(acli)",
       "Bash(acli *)",
       "Bash(gh *)",
-      "Bash(gh * *)"
-    ]
+      "Bash(gh * *)",
+      "Bash(*)",
+      "mcp__apps-ecosystem-mcp__*",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(cat */.env*)",
+      "Bash(echo */.env*)"
+    ],
+    "additionalDirectories": [
+      "/Users/anu.sridhar/Development/Projects",
+      "/Users/anu.sridhar"
+    ],
+    "defaultMode": "acceptEdits"
   },
   "model": "opus[1m]",
   "enabledPlugins": {
