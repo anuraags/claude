@@ -18,7 +18,7 @@ Follow these conventions when writing or refactoring Jest tests:
 
 
 <!-- BEGIN: apps-ecosystem-mcp -->
-# Global Claude Instructions — Apps Team
+<!-- # Global Claude Instructions — Apps Team
 
 ## Session start — MCP health check
 
@@ -35,5 +35,5 @@ On every subsequent request in the session, if an MCP was found disconnected at 
 
 ## Rules
 
-- The MCP health check runs **once per session only** — on the very first request. Do not repeat it on subsequent turns or skill invocations within the same session.
+- The MCP health check runs **once per session only** — on the very first request. Do not repeat it on subsequent turns or skill invocations within the same session. -->
 <!-- END: apps-ecosystem-mcp -->
