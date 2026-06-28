@@ -1,3 +1,9 @@
+# Code Exploration
+
+- Whenever you need to explore or understand source code in any repository, use the codebase memory MCP tools (e.g. `search_graph`, `trace_path`, `get_code_snippet`, `query_graph`, `get_architecture`, `search_code`) rather than relying on plain text search or file reads alone.
+- Before exploring, confirm the repository is indexed (use `index_status`). If the repository has not been indexed yet, stop and prompt me to index it first — do not proceed with exploration until it is indexed.
+- Grep/Glob/Read may still be used freely for non-code files (configs, docs, markdown), and you must always Read a file before editing it.
+
 # Jest test structure
 
 Follow these conventions when writing or refactoring Jest tests:

@@ -23,21 +23,21 @@
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/frontend-design/49b89c22b070",
-        "version": "49b89c22b070",
+        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/frontend-design/1c7528487c2a",
+        "version": "1c7528487c2a",
         "installedAt": "2026-06-14T06:22:29.416Z",
-        "lastUpdated": "2026-06-22T06:33:13.999Z",
-        "gitCommitSha": "49b89c22b0707da74ded4b45d01ddd4f175b6927"
+        "lastUpdated": "2026-06-25T01:38:38.903Z",
+        "gitCommitSha": "1c7528487c2ada96b5eac88a965c6a2723dfc521"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/feature-dev/49b89c22b070",
-        "version": "49b89c22b070",
+        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/feature-dev/1c7528487c2a",
+        "version": "1c7528487c2a",
         "installedAt": "2026-06-18T04:21:00.229Z",
-        "lastUpdated": "2026-06-22T06:33:13.998Z",
-        "gitCommitSha": "49b89c22b0707da74ded4b45d01ddd4f175b6927"
+        "lastUpdated": "2026-06-25T01:38:38.903Z",
+        "gitCommitSha": "1c7528487c2ada96b5eac88a965c6a2723dfc521"
       }
     ]
   }
