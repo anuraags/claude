@@ -1,91 +1,103 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "permissions": {
-        "allow": [
-            "Bash(acli)",
-            "Bash(acli *)",
-            "Bash(gh *)",
-            "Bash(gh * *)",
-            "Bash(*)",
-            "mcp__apps-ecosystem-mcp__*",
-            "Skill(update-config)",
-            "Skill(update-config:*)",
-            "mcp__codebase-memory-mcp__index_status",
-            "mcp__codebase-memory-mcp__index_repository"
-        ],
-        "deny": [
-            "Read(**/.env)",
-            "Read(**/.env.*)",
-            "Bash(cat */.env*)",
-            "Bash(echo */.env*)"
-        ],
-        "defaultMode": "acceptEdits",
-        "additionalDirectories": [
-            "/Users/anu.sridhar/Development/Projects",
-            "/Users/anu.sridhar"
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(acli)",
+      "Bash(acli *)",
+      "Bash(gh *)",
+      "Bash(gh * *)",
+      "Bash(*)",
+      "mcp__apps-ecosystem-mcp__*",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "mcp__codebase-memory-mcp__index_status",
+      "mcp__codebase-memory-mcp__index_repository",
+      "mcp__codebase-memory-mcp__search_code",
+      "mcp__codebase-memory-mcp__get_code_snippet",
+      "mcp__codebase-memory-mcp__search_graph",
+      "mcp__codebase-memory-mcp__trace_path",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_click"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(cat */.env*)",
+      "Bash(echo */.env*)"
+    ],
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "/Users/anu.sridhar/Development/Projects",
+      "/Users/anu.sridhar"
+    ]
+  },
+  "model": "claude-fable-5[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-code-discovery-gate",
+            "timeout": 5
+          }
         ]
-    },
-    "model": "opus[1m]",
-    "enabledPlugins": {
-        "rust-analyzer-lsp@claude-plugins-official": true,
-        "superpowers@claude-plugins-official": true,
-        "frontend-design@claude-plugins-official": true,
-        "feature-dev@claude-plugins-official": true
-    },
-    "feedbackSurveyState": {
-        "lastShownTime": 1754197624213
-    },
-    "tui": "fullscreen",
-    "hooks": {
-        "PreToolUse": [
-            {
-                "matcher": "Grep|Glob",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-code-discovery-gate",
-                        "timeout": 5
-                    }
-                ]
-            }
-        ],
-        "SessionStart": [
-            {
-                "matcher": "startup",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "resume",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "clear",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "compact",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            }
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
         ]
-    }
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true
+  },
+  "advisorModel": "fable",
+  "tui": "fullscreen",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754197624213
+  }
 }
