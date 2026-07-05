@@ -36,7 +36,7 @@
       "/Users/anu.sridhar"
     ]
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -99,5 +99,6 @@
   "tui": "fullscreen",
   "feedbackSurveyState": {
     "lastShownTime": 1754197624213
-  }
+  },
+  "effortLevel": "high"
 }

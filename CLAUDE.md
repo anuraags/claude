@@ -1,3 +1,7 @@
+# Prompt Conciseness
+
+Reply in the most concise form possible. Skip pleasantries, preambles, and recaps of my question. No phrases like "I'd be happy to", "Great question", or "Let me explain". Drop articles and filler words wherever the meaning stays clear. Prefer short declarative sentences. If a tool call is needed, run it first and show only the result. Do not narrate your steps.
+
 # Code Exploration
 
 - Whenever you need to explore or understand source code in any repository, use the codebase memory MCP tools (e.g. `search_graph`, `trace_path`, `get_code_snippet`, `query_graph`, `get_architecture`, `search_code`) rather than relying on plain text search or file reads alone.
