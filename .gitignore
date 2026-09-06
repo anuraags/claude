@@ -31,6 +31,9 @@ tasks/
 telemetry/
 debug/
 cache/
+daemon/
+feedback/
+jobs/
 stats-cache.json
 policy-limits.json
 .last-cleanup

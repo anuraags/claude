@@ -1,0 +1,15 @@
+#!/bin/bash
+# Correction-to-memory nudge (Claude Code UserPromptSubmit).
+# Heuristic-only, never blocks: if the submitted message reads like a
+# correction or standing preference, reminds Claude to consider saving it
+# to the auto-memory system instead of only acting on it in-session.
+INPUT="$(cat)"
+TEXT="$(jq -r '.prompt // .message // empty' <<<"$INPUT" 2>/dev/null)"
+[ -n "$TEXT" ] || TEXT="$INPUT"
+
+if grep -qiE '\b(no+,|don.?t do that|stop doing that|that.?s (wrong|not (what|right))|actually,? (i|we|let.?s|that)|instead of|revert that|please remember|from now on|going forward|next time)\b' <<<"$TEXT"; then
+  cat <<'EOF'
+{"hookSpecificOutput":{"hookEventName":"UserPromptSubmit","additionalContext":"This message may contain a correction or a standing preference. If it's something worth applying in future sessions (not just this task), save it via the memory system now rather than only acting on it in-session."}}
+EOF
+fi
+exit 0

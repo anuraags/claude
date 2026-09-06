@@ -8,6 +8,12 @@ Reply in the most concise form possible. Skip pleasantries, preambles, and recap
 - Before exploring, confirm the repository is indexed (use `index_status`). If the repository has not been indexed yet, stop and prompt me to index it first — do not proceed with exploration until it is indexed.
 - Grep/Glob/Read may still be used freely for non-code files (configs, docs, markdown), and you must always Read a file before editing it.
 
+# Code Comments
+
+- Keep comments very concise and specific. Prefer clean, self-explanatory code over comments that clarify what the code does.
+- Only leave a comment when logic is particularly tricky. If you think something needs a comment, ask me first.
+- Do not put JIRA tickets in comments — those belong in the commit message.
+
 # Jest test structure
 
 Follow these conventions when writing or refactoring Jest tests:
@@ -27,23 +33,3 @@ Follow these conventions when writing or refactoring Jest tests:
   block inside. An `it` block must never contain a conditional.
 
 
-<!-- BEGIN: apps-ecosystem-mcp -->
-<!-- # Global Claude Instructions — Apps Team
-
-## Session start — MCP health check
-
-At the start of every session, before responding to any request, verify both MCPs are reachable:
-
-1. Call `get_ecosystem_overview` on `apps-ecosystem-mcp`
-2. Call `apps_get_registry` on `apps-actions-mcp`
-
-For each MCP that fails or is unreachable, warn the user:
-> "⚠️ `[mcp-name]` is disconnected. Make sure the server is running (`npm run docker:up` for apps-actions-mcp). I'll continue but functionality that depends on this MCP will not work."
-
-On every subsequent request in the session, if an MCP was found disconnected at start, prepend a short reminder:
-> "⚠️ `[mcp-name]` is still disconnected — connect it before this task if it relies on it."
-
-## Rules
-
-- The MCP health check runs **once per session only** — on the very first request. Do not repeat it on subsequent turns or skill invocations within the same session. -->
-<!-- END: apps-ecosystem-mcp -->

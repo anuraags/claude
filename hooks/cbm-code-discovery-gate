@@ -1,0 +1,39 @@
+#!/bin/bash
+# codebase-memory-mcp search augmenter (Claude Code PreToolUse).
+# NOTE: the legacy filename is kept for zero-migration upgrades.
+# Despite the name this NEVER blocks a tool call - it only adds
+# graph context. Any failure is silent (exit 0, no output).
+BIN="/Users/anu.sridhar/.local/bin/codebase-memory-mcp"
+[ -x "$BIN" ] || exit 0
+
+INPUT="$(cat)"
+TOOL_NAME="$(jq -r '.tool_name // empty' <<<"$INPUT" 2>/dev/null)"
+
+if [ "$TOOL_NAME" = "Bash" ]; then
+  CMD="$(jq -r '.tool_input.command // empty' <<<"$INPUT" 2>/dev/null)"
+  # Only rewrite simple, single-command text searches. Skip anything
+  # piped/chained - too easy to misparse, and augmentation is best-effort.
+  case "$CMD" in
+    *'|'*|*';'*|*'&&'*|*'||'*) exit 0 ;;
+  esac
+  FIRST_WORD="$(awk '{print $1}' <<<"$CMD")"
+  case "$FIRST_WORD" in
+    grep|rg|ag|find) ;;
+    *) exit 0 ;;
+  esac
+
+  # Pattern is usually quoted; fall back to the first non-flag token.
+  PATTERN="$(grep -oE '"[^"]*"|'"'"'[^'"'"']*'"'"'' <<<"$CMD" | head -1 | sed -E 's/^["'"'"']//; s/["'"'"']$//')"
+  if [ -z "$PATTERN" ]; then
+    PATTERN="$(awk -v w="$FIRST_WORD" '{
+      for(i=1;i<=NF;i++){ if($i==w){start=i+1; break} }
+      for(i=start;i<=NF;i++){ if($i !~ /^-/){ print $i; exit } }
+    }' <<<"$CMD")"
+  fi
+  [ -n "$PATTERN" ] || exit 0
+
+  INPUT="$(jq -c --arg p "$PATTERN" '.tool_name = "Grep" | .tool_input = {pattern: $p}' <<<"$INPUT")"
+fi
+
+echo "$INPUT" | "$BIN" hook-augment 2>/dev/null
+exit 0

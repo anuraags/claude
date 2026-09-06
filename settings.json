@@ -7,9 +7,10 @@
       "Bash(gh *)",
       "Bash(gh * *)",
       "Bash(*)",
-      "mcp__apps-ecosystem-mcp__*",
       "Skill(update-config)",
       "Skill(update-config:*)",
+      "WebSearch",
+      "WebFetch",
       "mcp__codebase-memory-mcp__index_status",
       "mcp__codebase-memory-mcp__index_repository",
       "mcp__codebase-memory-mcp__search_code",
@@ -36,15 +37,26 @@
       "/Users/anu.sridhar"
     ]
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Grep|Glob",
+        "matcher": "Grep|Glob|Bash",
         "hooks": [
           {
             "type": "command",
             "command": "~/.claude/hooks/cbm-code-discovery-gate",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-correction-memory-nudge",
             "timeout": 5
           }
         ]
@@ -86,19 +98,28 @@
             "command": "~/.claude/hooks/cbm-session-reminder"
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/anu.sridhar/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
-  "advisorModel": "fable",
+  "effortLevel": "high",
   "tui": "fullscreen",
   "feedbackSurveyState": {
     "lastShownTime": 1754197624213
-  },
-  "effortLevel": "high"
+  }
 }

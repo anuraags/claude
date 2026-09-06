@@ -13,31 +13,31 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3",
-        "version": "6.0.3",
+        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/superpowers/6.3.0",
+        "version": "6.3.0",
         "installedAt": "2026-06-13T08:39:18.243Z",
-        "lastUpdated": "2026-06-19T00:32:41.845Z",
+        "lastUpdated": "2026-08-12T21:50:09.915Z",
         "gitCommitSha": "6fd4507659784c351abbd2bc264c7162cfd386dc"
       }
     ],
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/frontend-design/1c7528487c2a",
-        "version": "1c7528487c2a",
+        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/frontend-design/1dd995193ba2",
+        "version": "1dd995193ba2",
         "installedAt": "2026-06-14T06:22:29.416Z",
-        "lastUpdated": "2026-06-25T01:38:38.903Z",
-        "gitCommitSha": "1c7528487c2ada96b5eac88a965c6a2723dfc521"
+        "lastUpdated": "2026-09-04T00:31:34.415Z",
+        "gitCommitSha": "24cba05eabfdd686fc272c63b1599e32d663e0e7"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/feature-dev/1c7528487c2a",
-        "version": "1c7528487c2a",
+        "installPath": "/Users/anu.sridhar/.claude/plugins/cache/claude-plugins-official/feature-dev/1dd995193ba2",
+        "version": "1dd995193ba2",
         "installedAt": "2026-06-18T04:21:00.229Z",
-        "lastUpdated": "2026-06-25T01:38:38.903Z",
-        "gitCommitSha": "1c7528487c2ada96b5eac88a965c6a2723dfc521"
+        "lastUpdated": "2026-09-04T00:31:34.423Z",
+        "gitCommitSha": "24cba05eabfdd686fc272c63b1599e32d663e0e7"
       }
     ]
   }
